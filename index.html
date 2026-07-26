@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noir PC Repair — Reparación de computadoras en Durán, Ecuador. Diagnóstico gratis, garantía de 30 días, servicio a domicilio.">
+<title>Noir PC Repair — Reparación de computadoras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --paper:#FAF3E7;
+  --paper-dark:#F0E6D2;
+  --ink:#3A2A1E;
+  --ink-soft:#6B5744;
+  --amber:#E0983A;
+  --amber-dark:#B87526;
+  --teal:#1F5C5C;
+  --stamp-red:#C0432E;
+  --display:'Fredoka',sans-serif;
+  --body:'Work Sans',sans-serif;
+  --mono:'Space Mono',monospace;
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* textura de papel sutil */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(var(--ink-soft) 0.5px, transparent 0.5px);
+  background-size:14px 14px;
+}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--paper)f0;backdrop-filter:blur(6px);border-bottom:2px dashed var(--ink-soft);padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-hex{width:34px;height:34px;min-width:34px;background:#2B6FD1;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:700;font-size:12px}
+.logo-text{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink)}
+.nav-badge{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:var(--display);font-weight:700;font-size:16px;border:2px solid var(--ink)}
+.nav-logo span{font-family:var(--display);font-size:19px;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--amber-dark)}
+.nav-cta{background:var(--amber);color:var(--ink);border:2px solid var(--ink);padding:9px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .15s, box-shadow .15s}
+.nav-cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+
+section{position:relative;z-index:1;padding:80px 32px;max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:10px}
+.h2{font-family:var(--display);font-size:34px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+.lead{font-size:15px;color:var(--ink-soft);max-width:520px;margin-bottom:48px}
+
+/* HERO */
+.hero{padding:70px 32px 90px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;max-width:1080px;margin:0 auto}
+.hero-copy .eyebrow{margin-bottom:14px}
+.hero-copy h1{font-family:var(--display);font-size:46px;font-weight:700;line-height:1.15;margin-bottom:18px;color:var(--ink)}
+.hero-copy h1 em{font-style:normal;color:var(--amber-dark);text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:4px;text-underline-offset:6px}
+.hero-copy p{font-size:16px;color:var(--ink-soft);max-width:440px;margin-bottom:28px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--teal);color:var(--paper);border:2px solid var(--ink);padding:14px 26px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .15s, box-shadow .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none}
+
+/* EL TICKET */
+.ticket-wrap{position:relative;transform:rotate(-2deg)}
+.ticket{background:#fff;border:2px solid var(--ink);border-radius:6px;padding:26px 24px 0;box-shadow:8px 10px 0 var(--amber);position:relative}
+.ticket-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+.ticket-brand{font-family:var(--display);font-weight:700;font-size:15px}
+.ticket-num{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+.ticket-row{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px dotted var(--ink-soft)}
+.ticket-row span:first-child{color:var(--ink-soft)}
+.ticket-row span:last-child{font-family:var(--mono);font-weight:700}
+.ticket-stamp{position:absolute;right:20px;top:60px;border:3px solid var(--stamp-red);color:var(--stamp-red);font-family:var(--display);font-weight:700;font-size:13px;padding:6px 12px;border-radius:8px;transform:rotate(10deg);opacity:.85;letter-spacing:1px}
+.ticket-perf{height:22px;position:relative;margin-top:16px}
+.ticket-perf::before{content:'';position:absolute;left:-14px;right:-14px;top:0;border-top:2px dashed var(--ink-soft)}
+.ticket-perf .circle{position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.ticket-perf .circle.left{left:-25px}
+.ticket-perf .circle.right{right:-25px}
+.ticket-stub{padding:16px 24px 22px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between}
+
+/* SERVICIOS - estilo factura */
+.invoice{background:#fff;border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+.invoice-head{background:var(--ink);color:var(--paper);padding:16px 28px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;letter-spacing:1px}
+.invoice-item{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px dotted #ccc;gap:20px}
+.invoice-item:last-child{border-bottom:none}
+.invoice-check{width:26px;height:26px;min-width:26px;border-radius:6px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.invoice-item-title{font-weight:600;font-size:15px;margin-bottom:3px}
+.invoice-item-desc{font-size:13px;color:var(--ink-soft)}
+.invoice-item-main{flex:1}
+.invoice-price{font-family:var(--mono);font-weight:700;color:var(--amber-dark);font-size:13px;white-space:nowrap}
+
+/* SELLOS DE CONFIANZA */
+.stamps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stamp-card{text-align:center;padding:8px}
+.stamp-circle{width:100px;height:100px;border-radius:50%;border:3px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transform:rotate(-6deg);position:relative}
+.stamp-card:nth-child(2) .stamp-circle{border-color:var(--stamp-red);transform:rotate(4deg)}
+.stamp-card:nth-child(3) .stamp-circle{border-color:var(--amber-dark);transform:rotate(-3deg)}
+.stamp-circle::before{content:'';position:absolute;inset:6px;border:1px solid currentColor;border-radius:50%;opacity:.5}
+.stamp-icon{font-size:34px}
+.stamp-title{font-family:var(--display);font-weight:600;font-size:16px;margin-bottom:6px}
+.stamp-desc{font-size:13px;color:var(--ink-soft)}
+
+/* COMO FUNCIONA */
+.process{display:flex;flex-direction:column;gap:0;max-width:600px}
+.proc-step{display:flex;gap:20px;padding-bottom:32px;position:relative}
+.proc-step:not(:last-child)::before{content:'';position:absolute;left:19px;top:44px;bottom:-4px;width:2px;background:repeating-linear-gradient(to bottom, var(--ink-soft) 0 6px, transparent 6px 12px)}
+.proc-num{width:40px;height:40px;min-width:40px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;z-index:1}
+.proc-content h4{font-family:var(--display);font-size:16px;font-weight:600;margin-bottom:4px}
+.proc-content p{font-size:13px;color:var(--ink-soft)}
+
+/* NOIROS CROSS-PROMO — colisión intencional con paleta oscura */
+.noiros-promo{background:#0A0A0A;border-radius:16px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;border:2px solid var(--amber)}
+.noiros-promo .eyebrow{color:var(--amber)}
+.noiros-promo h3{font-family:var(--display);color:#fff;font-size:24px;font-weight:600;margin-bottom:10px}
+.noiros-promo h3 span{color:#C9A84C}
+.noiros-promo p{color:#999;font-size:14px;max-width:420px}
+.noiros-promo a{background:#C9A84C;color:#0A0A0A;text-decoration:none;padding:13px 24px;border-radius:8px;font-weight:700;font-size:14px;white-space:nowrap;display:inline-block}
+
+/* CONTACTO */
+.contact-box{background:var(--teal);color:var(--paper);border-radius:16px;padding:52px;text-align:center}
+.contact-box .eyebrow{color:var(--paper);opacity:.7}
+.contact-box h2{font-family:var(--display);font-size:30px;font-weight:700;margin-bottom:12px}
+.contact-box p{opacity:.85;margin-bottom:28px;font-size:14px}
+.btn-whatsapp{background:var(--amber);color:var(--ink);border:2px solid var(--ink);padding:15px 30px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+.contact-meta{margin-top:24px;font-family:var(--mono);font-size:12px;opacity:.75;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)}
+.footer-logo{font-family:var(--display);font-weight:700;font-size:15px;margin-bottom:10px}
+.footer-copy{font-size:12px;color:var(--ink-soft)}
+
+@media(max-width:760px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:50px 20px 60px;gap:40px}
+  .hero-copy h1{font-size:34px}
+  section{padding:56px 20px}
+  .stamps{grid-template-columns:1fr}
+  .noiros-promo{grid-template-columns:1fr;text-align:center}
+  .invoice-item{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="logo-text">Noir</span>
+    <div class="logo-hex">PC</div>
+    <span class="logo-text">Repair</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Cómo funciona</a></li>
+    <li><a href="#garantia">Garantía</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/593993328351" target="_blank">Pedir diagnóstico</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">✎ Taller técnico · Durán, Ecuador</div>
+    <h1>Tu computadora,<br>en <em>buenas manos</em>.</h1>
+    <p>Reparación, mantenimiento y optimización de PC y laptops. Diagnóstico gratuito, sin letra pequeña, y te explicamos todo en palabras simples.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/593993328351" target="_blank">💬 Escribir por WhatsApp</a>
+      <a class="btn-ghost" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+
+  <div class="ticket-wrap">
+    <div class="ticket">
+      <div class="ticket-top">
+        <div class="ticket-brand">Noir PC Repair</div>
+        <div class="ticket-num">TICKET Nº 0247</div>
+      </div>
+      <div class="ticket-row"><span>Equipo</span><span>PC de escritorio</span></div>
+      <div class="ticket-row"><span>Problema</span><span>No enciende</span></div>
+      <div class="ticket-row"><span>Diagnóstico</span><span>GRATIS</span></div>
+      <div class="ticket-row"><span>Tiempo estimado</span><span>24-48h</span></div>
+      <div class="ticket-stamp">✓ REVISADO</div>
+      <div class="ticket-perf"><span class="circle left"></span><span class="circle right"></span></div>
+      <div class="ticket-stub"><span>Conserva tu ticket</span><span>NoirPCRepair</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="eyebrow">Qué hacemos</div>
+  <h2 class="h2">Servicios</h2>
+  <p class="lead">Desde un formateo simple hasta dejar tu equipo funcionando como nuevo — con precios claros desde el primer momento.</p>
+
+  <div class="invoice">
+    <div class="invoice-head"><span>DETALLE DE SERVICIO</span><span>PRECIO REFERENCIAL</span></div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Formateo y respaldo de datos</div>
+        <div class="invoice-item-desc">Reinstalación limpia + tus archivos a salvo, siempre.</div>
+      </div>
+      <div class="invoice-price">desde $15</div>
+    </div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Limpieza física y cambio de pasta térmica</div>
+        <div class="invoice-item-desc">Tu equipo se calienta menos y dura más.</div>
+      </div>
+      <div class="invoice-price">desde $12</div>
+    </div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Cambio y actualización de piezas</div>
+        <div class="invoice-item-desc">RAM, disco, fuente — te asesoramos sin venderte de más.</div>
+      </div>
+      <div class="invoice-price">cotización</div>
+    </div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Optimización con NoirOS</div>
+        <div class="invoice-item-desc">Nuestro propio sistema, más liviano y sin relleno innecesario.</div>
+      </div>
+      <div class="invoice-price">desde $10</div>
+    </div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Eliminación de virus y malware</div>
+        <div class="invoice-item-desc">Revisión completa, sin dejar rastros.</div>
+      </div>
+      <div class="invoice-price">desde $10</div>
+    </div>
+
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Servicio a domicilio</div>
+        <div class="invoice-item-desc">Vamos hasta donde estés, dentro de Durán y alrededores.</div>
+      </div>
+      <div class="invoice-price">consultar</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="proceso">
+  <div class="eyebrow">Sin complicaciones</div>
+  <h2 class="h2">Cómo funciona</h2>
+  <p class="lead">Tres pasos, sin tecnicismos.</p>
+
+  <div class="process">
+    <div class="proc-step">
+      <div class="proc-num">1</div>
+      <div class="proc-content">
+        <h4>Recibimos tu equipo</h4>
+        <p>Nos cuentas qué notas raro y anotamos todo en tu ticket de servicio.</p>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">2</div>
+      <div class="proc-content">
+        <h4>Lo revisamos con calma</h4>
+        <p>El diagnóstico toma su tiempo — normalmente 24-48h. Te avisamos apenas esté listo.</p>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">3</div>
+      <div class="proc-content">
+        <h4>Te contactamos con el diagnóstico y el precio</h4>
+        <p>Te decimos exactamente qué tiene y cuánto cuesta arreglarlo. Tú decides si seguimos.</p>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">4</div>
+      <div class="proc-content">
+        <h4>Reparamos y te avisamos</h4>
+        <p>Apenas esté listo para retirar, te escribimos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA / SELLOS -->
+<section id="garantia">
+  <div class="eyebrow">Por qué confiar en nosotros</div>
+  <h2 class="h2">Nuestro compromiso</h2>
+  <p class="lead">Lo mismo que le prometemos a cada cliente, te lo prometemos a ti.</p>
+
+  <div class="stamps">
+    <div class="stamp-card">
+      <div class="stamp-circle"><span class="stamp-icon">🔍</span></div>
+      <div class="stamp-title">Diagnóstico gratis</div>
+      <div class="stamp-desc">Revisamos tu equipo sin costo, sin compromiso de reparar con nosotros.</div>
+    </div>
+    <div class="stamp-card">
+      <div class="stamp-circle"><span class="stamp-icon">🛡️</span></div>
+      <div class="stamp-title">Garantía 30 días</div>
+      <div class="stamp-desc">Si algo falla después del servicio, lo resolvemos sin costo extra.</div>
+    </div>
+    <div class="stamp-card">
+      <div class="stamp-circle"><span class="stamp-icon">🏠</span></div>
+      <div class="stamp-title">Vamos a tu casa</div>
+      <div class="stamp-desc">Si no puedes moverte, nosotros nos movemos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NOIROS CROSS PROMO -->
+<section>
+  <div class="noiros-promo">
+    <div>
+      <div class="eyebrow">Otro proyecto de la casa</div>
+      <h3>También creamos <span>NoirOS</span></h3>
+      <p>Un Windows optimizado, sin relleno ni programas que no pediste. Lo instalamos gratis con cualquier servicio de Noir PC Repair.</p>
+    </div>
+    <a href="https://enfikiko71-cmd.github.io/noiros/" target="_blank">Conocer NoirOS →</a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-box">
+    <div class="eyebrow">Hablemos</div>
+    <h2>¿Tu compu está fallando?</h2>
+    <p>Escríbenos y te decimos qué tiene, sin vueltas.</p>
+    <a class="btn-whatsapp" href="https://wa.me/593993328351" target="_blank">💬 +593 99 332 8351</a>
+    <div class="contact-meta">
+      <span>📍 Durán, Guayas, Ecuador</span>
+      <span>🕐 Lun–Sáb 9:00–18:00</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px">
+    <span class="logo-text" style="font-size:16px">Noir</span>
+    <div class="logo-hex" style="width:26px;height:26px;min-width:26px;font-size:9px">PC</div>
+    <span class="logo-text" style="font-size:16px">Repair</span>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 Noir PC Repair · Reparación de computadoras en Durán, Ecuador</p>
+    <p style="margin-top:4px">Un proyecto de NoirLab</p>
+  </div>
+</footer>
+
+</body>
+</html>
