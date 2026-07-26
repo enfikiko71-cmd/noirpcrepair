@@ -15,6 +15,7 @@ html{scroll-behavior:smooth}
   --paper-dark:#F0E6D2;
   --ink:#3A2A1E;
   --ink-soft:#6B5744;
+  --card-bg:#ffffff;
   --amber:#E0983A;
   --amber-dark:#B87526;
   --teal:#1F5C5C;
@@ -23,7 +24,18 @@ html{scroll-behavior:smooth}
   --body:'Work Sans',sans-serif;
   --mono:'Space Mono',monospace;
 }
-body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6}
+html[data-theme="dark"]{
+  --paper:#241812;
+  --paper-dark:#1A110C;
+  --ink:#F0E6D2;
+  --ink-soft:#C4AD8F;
+  --card-bg:#33261C;
+  --amber:#F0A84A;
+  --amber-dark:#F0C078;
+  --teal:#3FA3A3;
+  --stamp-red:#E0715C;
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;transition:background .25s,color .25s}
 img{max-width:100%;display:block}
 a{color:inherit}
 
@@ -35,7 +47,9 @@ body::before{
 }
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:var(--paper)f0;backdrop-filter:blur(6px);border-bottom:2px dashed var(--ink-soft);padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+nav{position:sticky;top:0;z-index:100;background:var(--paper);backdrop-filter:blur(6px);border-bottom:2px dashed var(--ink-soft);padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .25s}
+.theme-toggle{background:transparent;border:2px solid var(--ink);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--paper-dark)}
 .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .logo-hex{width:34px;height:34px;min-width:34px;background:#2B6FD1;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:700;font-size:12px}
 .logo-text{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink)}
@@ -65,7 +79,7 @@ section{position:relative;z-index:1;padding:80px 32px;max-width:1080px;margin:0 
 
 /* EL TICKET */
 .ticket-wrap{position:relative;transform:rotate(-2deg)}
-.ticket{background:#fff;border:2px solid var(--ink);border-radius:6px;padding:26px 24px 0;box-shadow:8px 10px 0 var(--amber);position:relative}
+.ticket{background:var(--card-bg);border:2px solid var(--ink);border-radius:6px;padding:26px 24px 0;box-shadow:8px 10px 0 var(--amber);position:relative;transition:background .25s}
 .ticket-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
 .ticket-brand{font-family:var(--display);font-weight:700;font-size:15px}
 .ticket-num{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
@@ -81,9 +95,9 @@ section{position:relative;z-index:1;padding:80px 32px;max-width:1080px;margin:0 
 .ticket-stub{padding:16px 24px 22px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between}
 
 /* SERVICIOS - estilo factura */
-.invoice{background:#fff;border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+.invoice{background:var(--card-bg);border:2px solid var(--ink);border-radius:10px;overflow:hidden;transition:background .25s}
 .invoice-head{background:var(--ink);color:var(--paper);padding:16px 28px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;letter-spacing:1px}
-.invoice-item{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px dotted #ccc;gap:20px}
+.invoice-item{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px dotted var(--ink-soft);gap:20px}
 .invoice-item:last-child{border-bottom:none}
 .invoice-check{width:26px;height:26px;min-width:26px;border-radius:6px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
 .invoice-item-title{font-weight:600;font-size:15px;margin-bottom:3px}
@@ -158,6 +172,7 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="nav-cta" href="https://wa.me/593993328351" target="_blank">Pedir diagnóstico</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema" onclick="toggleTheme()">🌙</button>
 </nav>
 
 <!-- HERO -->
@@ -355,5 +370,36 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
   </div>
 </footer>
 
+<script>
+(function() {
+  var saved = localStorage.getItem('npr-theme');
+  var initial = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (initial === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateIcon();
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    html.removeAttribute('data-theme');
+    localStorage.setItem('npr-theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    localStorage.setItem('npr-theme', 'dark');
+  }
+  updateIcon();
+}
+
+function updateIcon() {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  btn.textContent = isDark ? '☀️' : '🌙';
+  btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+}
+</script>
 </body>
 </html>
