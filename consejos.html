@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Consejos simples y prácticos para cuidar tu PC o laptop en el día a día — sin tecnicismos. Cuándo puedes resolverlo tú y cuándo conviene llamar a un técnico.">
+<title>Consejos de cuidado — Noir PC Repair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --paper:#FAF3E7;
+  --paper-dark:#F0E6D2;
+  --ink:#3A2A1E;
+  --ink-soft:#6B5744;
+  --card-bg:#ffffff;
+  --amber:#E0983A;
+  --amber-dark:#B87526;
+  --teal:#1F5C5C;
+  --stamp-red:#C0432E;
+  --display:'Fredoka',sans-serif;
+  --body:'Work Sans',sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html[data-theme="dark"]{
+  --paper:#241812;
+  --paper-dark:#1A110C;
+  --ink:#F0E6D2;
+  --ink-soft:#C4AD8F;
+  --card-bg:#33261C;
+  --amber:#F0A84A;
+  --amber-dark:#F0C078;
+  --teal:#3FA3A3;
+  --stamp-red:#E0715C;
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;transition:background .25s,color .25s}
+a{color:inherit}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(var(--ink-soft) 0.5px, transparent 0.5px);
+  background-size:14px 14px;
+}
+nav{position:sticky;top:0;z-index:100;background:var(--paper);backdrop-filter:blur(6px);border-bottom:2px dashed var(--ink-soft);padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .25s}
+.theme-toggle{background:transparent;border:2px solid var(--ink);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--paper-dark)}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-hex{width:34px;height:34px;min-width:34px;background:#2B6FD1;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:700;font-size:12px}
+.logo-text{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--amber-dark)}
+.nav-cta{background:var(--teal);color:var(--paper);border:2px solid var(--ink);padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;box-shadow:3px 3px 0 var(--ink)}
+@media(max-width:800px){.nav-links{display:none}}
+
+section{position:relative;z-index:1;padding:70px 32px;max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:10px}
+.h2{font-family:var(--display);font-size:34px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+.lead{font-size:15px;color:var(--ink-soft);max-width:560px;margin-bottom:20px}
+
+.hero-tips{text-align:center;padding-bottom:20px}
+.hero-tips .eyebrow{justify-content:center}
+.hero-tips .lead{margin:0 auto 8px}
+
+.tip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+.tip-card{background:var(--card-bg);border:2px solid var(--ink);border-radius:14px;padding:26px;box-shadow:5px 5px 0 var(--ink-soft)}
+.tip-card-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.tip-icon{font-size:26px}
+.tip-card h3{font-family:var(--display);font-size:19px;color:var(--ink);font-weight:600}
+.tip-list{list-style:none}
+.tip-list li{position:relative;padding-left:22px;margin-bottom:12px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.tip-list li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
+
+.warn-card{border-color:var(--stamp-red)}
+.warn-card .tip-list li::before{content:'!';color:var(--stamp-red)}
+
+.cta-box{background:var(--teal);color:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:32px;margin-top:16px;text-align:center;box-shadow:5px 5px 0 var(--ink)}
+.cta-box h3{font-family:var(--display);font-size:20px;margin-bottom:10px}
+.cta-box p{font-size:14px;opacity:.9;margin-bottom:18px}
+.btn-primary{background:var(--amber);color:var(--ink);border:2px solid var(--ink);padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+
+footer{border-top:2px dashed var(--ink-soft);padding:40px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;position:relative;z-index:1}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.footer-links a{text-decoration:none;font-size:13px;color:var(--ink-soft)}
+.footer-links a:hover{color:var(--amber-dark)}
+.footer-copy{font-size:12px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="logo-text">Noir</span>
+    <div class="logo-hex">PC</div>
+    <span class="logo-text">Repair</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="index.html#proceso">Cómo funciona</a></li>
+    <li><a href="consejos.html">Consejos</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/593993328351" target="_blank">Pedir diagnóstico</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema" onclick="toggleTheme()">🌙</button>
+</nav>
+
+<section class="hero-tips">
+  <div class="eyebrow">✎ Cuidado preventivo</div>
+  <h2 class="h2">Consejos para cuidar tu equipo</h2>
+  <p class="lead" style="margin-left:auto;margin-right:auto">Cosas simples que puedes hacer tú mismo, en palabras simples — y cómo ayudarnos a nosotros cuando ya toca una revisión de verdad.</p>
+</section>
+
+<section style="padding-top:0">
+<div class="tip-grid">
+
+<div class="tip-card">
+<div class="tip-card-head"><span class="tip-icon">🧹</span><h3>Cuidado físico</h3></div>
+<ul class="tip-list">
+<li>Limpia el polvo de las rejillas de ventilación cada 2-3 meses con una brochita o aire comprimido, con el equipo apagado.</li>
+<li>Evita usar la laptop sobre la cama o el sofá — tapa las salidas de aire y hace que se caliente de más.</li>
+<li>Transpórtala siempre apagada o en suspensión, dentro de una funda, para evitar golpes al disco.</li>
+<li>Déjale espacio libre alrededor para que el aire circule, no la pegues contra la pared.</li>
+</ul>
+</div>
+
+<div class="tip-card">
+<div class="tip-card-head"><span class="tip-icon">💻</span><h3>Uso diario</h3></div>
+<ul class="tip-list">
+<li>Si vas a estar fuera un rato corto, usa "Suspender". Si es por horas o toda la noche, mejor apágala del todo.</li>
+<li>No la apagues de un tirón (botón de encendido mantenido) salvo que se haya trabado por completo — puede dañar archivos abiertos.</li>
+<li>Deja que las actualizaciones de Windows se instalen cuando aparezcan, no las pospongas indefinidamente.</li>
+<li>Evita tener demasiados programas abiertos "por si acaso" — ciérralos cuando ya no los uses.</li>
+</ul>
+</div>
+
+<div class="tip-card">
+<div class="tip-card-head"><span class="tip-icon">🔒</span><h3>Seguridad básica</h3></div>
+<ul class="tip-list">
+<li>Usa una contraseña distinta para tu correo y tus redes — si roban una, no caen todas.</li>
+<li>No conectes memorias USB desconocidas o de terceros sin confiar en su origen.</li>
+<li>Mantén el antivirus que trae Windows (Defender) activado — no necesitas instalar otro si ya lo tienes al día.</li>
+<li>Guarda tus fotos y documentos importantes también en un segundo lugar (nube o disco externo), no solo en la PC.</li>
+</ul>
+</div>
+
+<div class="tip-card warn-card">
+<div class="tip-card-head"><span class="tip-icon">🛠️</span><h3>Antes de llamarnos, esto nos ayuda</h3></div>
+<ul class="tip-list">
+<li>Anota cuándo empezó el problema: ¿fue después de una actualización, una caída, un apagón?</li>
+<li>Fíjate si pasa siempre o solo a veces — esa diferencia nos dice mucho.</li>
+<li>Si aparece un mensaje de error en pantalla, tómale una foto con el celular antes de reiniciar.</li>
+<li>No la abras ni muevas cables por tu cuenta — así llega intacta para el diagnóstico.</li>
+<li>Si notas humo, chispas u olor a quemado: apágala y desconéctala de inmediato, y luego escríbenos.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="cta-box">
+<h3>¿Tu equipo ya muestra alguna de estas señales?</h3>
+<p>Diagnóstico gratuito, sin compromiso — te decimos qué tiene y cuánto cuesta antes de tocar nada.</p>
+<a class="btn-primary" href="https://wa.me/593993328351" target="_blank">💬 Escribir por WhatsApp</a>
+</div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="consejos.html">Consejos</a>
+    <a href="https://enfikiko71-cmd.github.io/noiros/" target="_blank">NoirOS</a>
+    <a href="https://enfikiko71-cmd.github.io/Noir-Site/" target="_blank">Noir Sites</a>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 Noir PC Repair · Reparación de computadoras en Durán, Ecuador</p>
+    <p style="margin-top:4px">Un proyecto de NoirLab</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('npr-theme');
+  var initial = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (initial === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateIcon();
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    html.removeAttribute('data-theme');
+    localStorage.setItem('npr-theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    localStorage.setItem('npr-theme', 'dark');
+  }
+  updateIcon();
+}
+
+function updateIcon() {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  btn.textContent = isDark ? '☀️' : '🌙';
+  btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+}
+</script>
+</body>
+</html>
