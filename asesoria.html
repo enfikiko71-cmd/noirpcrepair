@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Asesoría técnica en línea por videollamada y control remoto — configuración, optimización, dudas de compra, sin necesidad de traer tu equipo.">
+<title>Asesoría en línea — Noir PC Repair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --paper:#FAF3E7;
+  --paper-dark:#F0E6D2;
+  --ink:#3A2A1E;
+  --ink-soft:#6B5744;
+  --card-bg:#ffffff;
+  --amber:#E0983A;
+  --amber-dark:#B87526;
+  --teal:#1F5C5C;
+  --stamp-red:#C0432E;
+  --display:'Fredoka',sans-serif;
+  --body:'Work Sans',sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html[data-theme="dark"]{
+  --paper:#241812;
+  --paper-dark:#1A110C;
+  --ink:#F0E6D2;
+  --ink-soft:#C4AD8F;
+  --card-bg:#33261C;
+  --amber:#F0A84A;
+  --amber-dark:#F0C078;
+  --teal:#3FA3A3;
+  --stamp-red:#E0715C;
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;transition:background .25s,color .25s}
+a{color:inherit}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(var(--ink-soft) 0.5px, transparent 0.5px);
+  background-size:14px 14px;
+}
+nav{position:sticky;top:0;z-index:100;background:var(--paper);backdrop-filter:blur(6px);border-bottom:2px dashed var(--ink-soft);padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .25s}
+.theme-toggle{background:transparent;border:2px solid var(--ink);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--paper-dark)}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-hex{width:34px;height:34px;min-width:34px;background:#2B6FD1;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:700;font-size:12px}
+.logo-text{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--amber-dark)}
+.nav-cta{background:var(--teal);color:var(--paper);border:2px solid var(--ink);padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;box-shadow:3px 3px 0 var(--ink)}
+@media(max-width:800px){.nav-links{display:none}}
+
+section{position:relative;z-index:1;padding:70px 32px;max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:10px}
+.h2{font-family:var(--display);font-size:34px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+.lead{font-size:15px;color:var(--ink-soft);max-width:560px;margin-bottom:20px}
+
+.hero-asesoria{text-align:center;padding-bottom:10px}
+.hero-asesoria .eyebrow{justify-content:center}
+.hero-asesoria .lead{margin:0 auto 8px}
+
+/* alcance: qué sí / qué no */
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+.scope-card{background:var(--card-bg);border:2px solid var(--ink);border-radius:14px;padding:26px;box-shadow:5px 5px 0 var(--ink-soft)}
+.scope-card.no{border-color:var(--stamp-red)}
+.scope-card h3{font-family:var(--display);font-size:18px;margin-bottom:14px}
+.scope-list{list-style:none}
+.scope-list li{position:relative;padding-left:22px;margin-bottom:10px;font-size:14px;color:var(--ink-soft)}
+.scope-list.yes li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
+.scope-list.no li::before{content:'✕';position:absolute;left:0;color:var(--stamp-red);font-weight:700}
+
+/* invoice reutilizado para precios */
+.invoice{background:var(--card-bg);border:2px solid var(--ink);border-radius:10px;overflow:hidden;transition:background .25s}
+.invoice-head{background:var(--ink);color:var(--paper);padding:16px 28px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;letter-spacing:1px}
+.invoice-item{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px dotted var(--ink-soft);gap:20px}
+.invoice-item:last-child{border-bottom:none}
+.invoice-check{width:26px;height:26px;min-width:26px;border-radius:6px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.invoice-item-title{font-weight:600;font-size:15px;margin-bottom:3px}
+.invoice-item-desc{font-size:13px;color:var(--ink-soft)}
+.invoice-item-main{flex:1}
+.invoice-price{font-family:var(--mono);font-weight:700;color:var(--amber-dark);font-size:13px;white-space:nowrap}
+
+/* pasos del proceso */
+.process{display:flex;flex-direction:column;gap:20px;margin-top:24px}
+.proc-step{display:flex;gap:18px;align-items:flex-start}
+.proc-num{width:32px;height:32px;min-width:32px;border-radius:50%;background:var(--amber);color:var(--ink);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:14px}
+.proc-content h4{font-size:15px;margin-bottom:4px}
+.proc-content p{font-size:13px;color:var(--ink-soft)}
+
+.contact-box{background:var(--teal);color:var(--paper);border-radius:16px;padding:52px;text-align:center}
+.contact-box .eyebrow{color:var(--paper);opacity:.7;justify-content:center}
+.contact-box h2{font-family:var(--display);font-size:30px;font-weight:700;margin-bottom:12px}
+.contact-box p{opacity:.85;margin-bottom:28px;font-size:14px}
+.btn-whatsapp{background:var(--amber);color:var(--ink);border:2px solid var(--ink);padding:15px 30px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+
+footer{border-top:2px dashed var(--ink-soft);padding:40px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;position:relative;z-index:1}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.footer-links a{text-decoration:none;font-size:13px;color:var(--ink-soft)}
+.footer-links a:hover{color:var(--amber-dark)}
+.footer-copy{font-size:12px;color:var(--ink-soft)}
+
+@media(max-width:600px){.invoice-item{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="logo-text">Noir</span>
+    <div class="logo-hex">PC</div>
+    <span class="logo-text">Repair</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="asesoria.html">Asesoría en línea</a></li>
+    <li><a href="consejos.html">Consejos</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/593993328351" target="_blank">Agendar asesoría</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema" onclick="toggleTheme()">🌙</button>
+</nav>
+
+<section class="hero-asesoria">
+  <div class="eyebrow">💻 En vivo, por control remoto</div>
+  <h2 class="h2">Asesoría técnica en línea</h2>
+  <p class="lead" style="margin-left:auto;margin-right:auto">Resolvemos tu consulta por videollamada y control remoto, sin necesidad de traer tu equipo — desde cualquier ciudad.</p>
+</section>
+
+<!-- ALCANCE -->
+<section style="padding-top:0">
+<div class="scope-grid">
+  <div class="scope-card">
+    <h3>✓ Esto sí lo resolvemos en línea</h3>
+    <ul class="scope-list yes">
+      <li>Configuración y optimización guiada de Windows</li>
+      <li>PC o laptop lenta, sin necesidad de abrir el equipo</li>
+      <li>Dudas antes de comprar una laptop o PC nueva</li>
+      <li>Virus o malware que no comprometió el sistema a nivel físico</li>
+      <li>Enseñarte a hacer respaldos, instalar programas, configurar correo</li>
+    </ul>
+  </div>
+  <div class="scope-card no">
+    <h3>✕ Esto requiere taller físico</h3>
+    <ul class="scope-list no">
+      <li>Cambio de piezas (pantalla, teclado, batería, disco)</li>
+      <li>Equipo que no enciende por falla de hardware</li>
+      <li>Reparación de placa o soldadura</li>
+      <li>Limpieza física interna de polvo/pasta térmica</li>
+    </ul>
+  </div>
+</div>
+<p class="lead" style="margin-top:20px">Si durante la asesoría detectamos que el problema es de hardware, te lo decimos de inmediato — no se cobra tiempo extra por eso. Si estás en Durán o Guayaquil, coordinamos la reparación presencial; si estás en otra ciudad, te orientamos para que sepas exactamente qué pedirle a un técnico local.</p>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios" style="padding-top:0">
+  <div class="eyebrow">Precios claros</div>
+  <h2 class="h2">¿Cuánto cuesta?</h2>
+  <p class="lead">Todo se cobra por adelantado, antes de agendar la hora.</p>
+
+  <div class="invoice">
+    <div class="invoice-head"><span>SERVICIO</span><span>PRECIO</span></div>
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Consulta rápida</div>
+        <div class="invoice-item-desc">Hasta 25 minutos — para dudas puntuales.</div>
+      </div>
+      <div class="invoice-price">$5</div>
+    </div>
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Sesión completa</div>
+        <div class="invoice-item-desc">1 hora — configuración u optimización a fondo.</div>
+      </div>
+      <div class="invoice-price">$12</div>
+    </div>
+    <div class="invoice-item">
+      <div class="invoice-check">✓</div>
+      <div class="invoice-item-main">
+        <div class="invoice-item-title">Asesoría de compra</div>
+        <div class="invoice-item-desc">20-30 minutos — qué equipo comprar según tu uso y presupuesto.</div>
+      </div>
+      <div class="invoice-price">$5</div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section style="padding-top:0">
+  <div class="eyebrow">Sin complicaciones</div>
+  <h2 class="h2">Cómo funciona</h2>
+  <div class="process">
+    <div class="proc-step">
+      <div class="proc-num">1</div>
+      <div class="proc-content"><h4>Nos escribes por WhatsApp</h4><p>Nos cuentas qué necesitas y confirmamos el servicio.</p></div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">2</div>
+      <div class="proc-content"><h4>Pago por adelantado</h4><p>Transferencia (Ecuador) o PayPal: <strong>enfi71@yahoo.com</strong> (elige "Bienes y Servicios"). Nos mandas el comprobante.</p></div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">3</div>
+      <div class="proc-content"><h4>Agendamos el horario</h4><p>Te pasamos el enlace de conexión remota (AnyDesk, gratis y toma 1 minuto instalarlo).</p></div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">4</div>
+      <div class="proc-content"><h4>Resolvemos en vivo</h4><p>Videollamada + control remoto hasta dejar tu consulta resuelta.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section>
+  <div class="contact-box">
+    <div class="eyebrow">Agenda tu asesoría</div>
+    <h2>¿Empezamos?</h2>
+    <p>Escríbenos por WhatsApp y te confirmamos el servicio y el horario.</p>
+    <a class="btn-whatsapp" href="https://wa.me/593993328351" target="_blank">💬 +593 99 332 8351</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="asesoria.html">Asesoría en línea</a>
+    <a href="consejos.html">Consejos</a>
+    <a href="https://enfikiko71-cmd.github.io/noiros/" target="_blank">NoirOS</a>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 Noir PC Repair · Reparación de computadoras en Durán, Ecuador</p>
+    <p style="margin-top:4px">Un proyecto de NoirLab</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('npr-theme');
+  var initial = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (initial === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateIcon();
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    html.removeAttribute('data-theme');
+    localStorage.setItem('npr-theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    localStorage.setItem('npr-theme', 'dark');
+  }
+  updateIcon();
+}
+
+function updateIcon() {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  btn.textContent = isDark ? '☀️' : '🌙';
+  btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+}
+</script>
+</body>
+</html>
