@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enfikiko71-cmd.github.io/noirpcrepair/sitemap.xml
