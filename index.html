@@ -158,6 +158,14 @@ section{position:relative;z-index:1;padding:80px 32px;max-width:1080px;margin:0 
 .noiros-promo p{color:#999;font-size:14px;max-width:420px}
 .noiros-promo a{background:#C9A84C;color:#0A0A0A;text-decoration:none;padding:13px 24px;border-radius:8px;font-weight:700;font-size:14px;white-space:nowrap;display:inline-block}
 
+/* GUÍA PDF - promo */
+.guia-promo{background:var(--card-bg);border:2px solid var(--ink);border-radius:12px;padding:36px;display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:center;box-shadow:8px 10px 0 var(--amber);transition:background .25s}
+.guia-cover{width:170px;height:170px;border-radius:10px;border:2px solid var(--ink);object-fit:cover;transform:rotate(-2deg)}
+.guia-price{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:1px;color:var(--amber-dark);border:2px dashed var(--amber-dark);border-radius:6px;padding:3px 10px;margin-bottom:12px}
+.guia-promo h3{font-family:var(--display);font-size:26px;font-weight:600;margin-bottom:10px;color:var(--ink)}
+.guia-promo p{font-size:14px;color:var(--ink-soft);max-width:520px;margin-bottom:18px}
+.guia-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
 /* CONTACTO */
 .contact-box{background:var(--teal);color:var(--paper);border-radius:16px;padding:52px;text-align:center}
 .contact-box .eyebrow{color:var(--paper);opacity:.7}
@@ -180,6 +188,9 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
   .stamps{grid-template-columns:1fr}
   .noiros-promo{grid-template-columns:1fr;text-align:center}
   .invoice-item{flex-wrap:wrap}
+  .guia-promo{grid-template-columns:1fr;text-align:center;padding:28px 22px;gap:24px}
+  .guia-cover{margin:0 auto}
+  .guia-btns{justify-content:center}
 }
 </style>
 </head>
@@ -198,6 +209,7 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
     <li><a href="#garantia">Garantía</a></li>
     <li><a href="asesoria.html">Asesoría en línea</a></li>
     <li><a href="consejos.html">Consejos</a></li>
+    <li><a href="#guia">Guía</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="nav-cta" href="https://wa.me/593962582966" target="_blank">Pedir diagnóstico</a>
@@ -209,7 +221,7 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
   <div class="hero-copy">
     <div class="eyebrow">✎ Taller técnico · Durán, Ecuador</div>
     <h1>Tu computadora,<br>en <em>buenas manos</em>.</h1>
-    <p>Reparación, mantenimiento y optimización de PC y laptops. Diagnóstico sin costo si procedés con la reparación — te explicamos todo en palabras simples.</p>
+    <p>Reparación, mantenimiento y optimización de PC y laptops. Diagnóstico sin costo si procedes con la reparación — te explicamos todo en palabras simples.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="https://wa.me/593962582966" target="_blank">💬 Escribir por WhatsApp</a>
       <a class="btn-ghost" href="#servicios">Ver servicios</a>
@@ -380,7 +392,7 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
     <div class="stamp-card">
       <div class="stamp-circle"><span class="stamp-icon">🔍</span></div>
       <div class="stamp-title">Diagnóstico sin costo</div>
-      <div class="stamp-desc">Si procedés con la reparación, no pagás nada por la revisión. Si decidís no reparar, el diagnóstico tiene un cargo de $10.</div>
+      <div class="stamp-desc">Si procedes con la reparación, no pagas nada por la revisión. Si decides no reparar, el diagnóstico tiene un cargo de $10.</div>
     </div>
     <div class="stamp-card">
       <div class="stamp-circle"><span class="stamp-icon">🛡️</span></div>
@@ -391,6 +403,23 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
       <div class="stamp-circle"><span class="stamp-icon">🏠</span></div>
       <div class="stamp-title">Vamos a tu casa</div>
       <div class="stamp-desc">Si no puedes moverte, nosotros nos movemos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUÍA PDF -->
+<section id="guia">
+  <div class="guia-promo">
+    <img class="guia-cover" src="img/portada-guia.jpg" alt="Portada de la guía Revive tu PC lenta sin gastar de más" width="170" height="170" loading="lazy">
+    <div>
+      <div class="eyebrow">Hazlo tú mismo</div>
+      <span class="guia-price">GUÍA EN PDF · $7.99</span>
+      <h3>¿Prefieres acelerar tu PC tú mismo?</h3>
+      <p>Pasos simples con capturas reales de Windows y un semáforo que te dice qué puedes hacer tú y cuándo conviene llamar a un técnico. Si te trabas, nos escribes.</p>
+      <div class="guia-btns">
+        <a class="btn-primary" href="https://go.hotmart.com/A108391127D?src=web" target="_blank" rel="noopener">Ver la guía</a>
+        <a class="btn-ghost" href="https://wa.me/593962582966" target="_blank" rel="noopener">Prefiero que lo hagan ustedes</a>
+      </div>
     </div>
   </div>
 </section>
@@ -442,7 +471,7 @@ footer{padding:40px 32px;text-align:center;border-top:2px dashed var(--ink-soft)
   <div class="footer-copy">
     <p>© 2026 Noir PC Repair · Reparación de computadoras en Durán, Ecuador</p>
     <p style="margin-top:4px">Un proyecto de NoirLab</p>
-    <p style="margin-top:8px"><a href="asesoria.html" style="color:var(--amber-dark);text-decoration:none">Asesoría en línea →</a> · <a href="consejos.html" style="color:var(--amber-dark);text-decoration:none">Ver consejos de cuidado →</a></p>
+    <p style="margin-top:8px"><a href="asesoria.html" style="color:var(--amber-dark);text-decoration:none">Asesoría en línea →</a> · <a href="consejos.html" style="color:var(--amber-dark);text-decoration:none">Ver consejos de cuidado →</a> · <a href="#guia" style="color:var(--amber-dark);text-decoration:none">Guía para acelerar tu PC →</a></p>
   </div>
 </footer>
 
